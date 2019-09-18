@@ -9,7 +9,6 @@ import java.io.*;
 public class Open_Rois implements PlugIn {
 
 	public void run(String arg) {
-		try {
 		ImagePlus imp = IJ.getImage();
 		String name = imp.getTitle();
 		name = name.substring(0, name.lastIndexOf("."));
@@ -21,7 +20,6 @@ public class Open_Rois implements PlugIn {
 			ImagePlus imp2 = new ImagePlus(name+"_"+(i+1), ip.crop());
 			imp2.show();
 		}
-	} catch(IOException ie) { ie.printStackTrace(); }  
 	}
 
 }
