@@ -1,9 +1,6 @@
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
-
-import org.apache.xmlbeans.impl.jam.mutable.MPackage;
-
 import ij.IJ;
 import ij.ImagePlus;
 import ij.ImageStack;
