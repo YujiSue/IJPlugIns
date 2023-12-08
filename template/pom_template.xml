@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>31.1.0</version>
+		<relativePath />
+	</parent>
+
+	<groupId>%_GROUP_%</groupId>
+	<artifactId>%_CLASS_%</artifactId>
+	<version>%_VERSION_%</version>
+
+	<name>%_NAME_%</name>
+	<description>%_DESCRIPTION_%</description>
+	<url>%_REPOSITORY_%</url>
+	<inceptionYear>%_YEAR_%</inceptionYear>
+	<organization>
+		<name>%_ORG_%</name>
+		<url>%_ORG_URL_%</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>%_LICENSE_%</name>
+			<url></url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<!-- See https://imagej.net/contribute/governance#scijava-team-roles -->
+		<developer>
+			<id>%_AUTHOR_ID_%</id>
+			<name>%_AUTHOR_%</name>
+			<url>%_AUTHOR_URL_%</url>
+			<roles>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>None</name>
+		</contributor>
+	</contributors>
+
+	<mailingLists>
+		<mailingList>
+			<name>Image.sc Forum</name>
+			<archive>https://forum.image.sc/tag/imagej</archive>
+		</mailingList>
+	</mailingLists>
+	
+	<scm>
+		<developerConnection>scm:git:%_REPOSITORY_%</developerConnection>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+	</issueManagement>
+	<ciManagement>
+		<system>None</system>
+	</ciManagement>
+
+	<properties>
+		<package-name>%_PACKAGE_%</package-name>
+		<main-class>%_FULL_CLASS_%</main-class>
+		<license.licenseName>%_LICENSE_%</license.licenseName>
+		<license.copyrightOwners>%_AUTHOR_%</license.copyrightOwners>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>ij</artifactId>
+		</dependency>
+	</dependencies>
+</project>
