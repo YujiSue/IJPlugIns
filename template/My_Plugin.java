@@ -1,4 +1,4 @@
-%_PACKAGE_%
+package %_PACKAGE_%;
 
 import ij.*;
 import ij.process.*;
