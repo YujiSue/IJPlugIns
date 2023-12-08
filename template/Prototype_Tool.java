@@ -1,6 +1,6 @@
 // Prototype plugin tool. There are more plugin tools at
 // http://imagej.nih.gov/ij/plugins/index.html#tools
-%_PACKAGE_%
+package %_PACKAGE_%;
 
 import ij.*;
 import ij.process.*;
