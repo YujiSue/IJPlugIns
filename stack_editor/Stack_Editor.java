@@ -19,19 +19,18 @@ import ij.plugin.filter.PlugInFilterRunner;
 import ij.process.ImageProcessor;
 
 
-public class Stack_Editor implements ExtendedPlugInFilter {
-
+public class Stack_Editor implements ExtendedPlugInFilter, AdjustmentListener {
+	//
 	int start, end, interval;
 	int nslice;
 	int cslice;
 	boolean ori;
-	
+	//
 	ImagePlus imp;
 	ImageStack ims;
-	
+	//
 	int nPass;
-	
-	
+	//
 	public int setup(String arg, ImagePlus imp) {
 		if (imp==null) {
 			IJ.noImage();
@@ -46,7 +45,7 @@ public class Stack_Editor implements ExtendedPlugInFilter {
 		IJ.register(Stack_Editor.class);
 		return DOES_ALL|STACK_REQUIRED;
 	}
-
+	//
 	public void run(ImageProcessor ip) {
 		// TODO Auto-generated method stub
 		ImageStack ims_ = new ImageStack(ims.getWidth(), ims.getHeight());
@@ -60,9 +59,8 @@ public class Stack_Editor implements ExtendedPlugInFilter {
 		} else {
 			imp.setStack(ims_);
 		}
-		
 	}
-
+	//
 	public int showDialog(ImagePlus imp, String command, PlugInFilterRunner pfr) {
 		GenericDialog gd = new GenericDialog("Stack Controler");
 		gd.addNumericField("Start:", start, 0, 10, "");
@@ -73,12 +71,7 @@ public class Stack_Editor implements ExtendedPlugInFilter {
 		gd.addSlider("Slice:", start, end, cslice);
 		Scrollbar sslider = (Scrollbar)(gd.getSliders().get(0));
 		this.imp.setSlice(cslice);
-		sslider.addAdjustmentListener(new AdjustmentListener() {
-			public void adjustmentValueChanged(AdjustmentEvent ae) {
-				cslice = ae.getValue();
-				Stack_Editor.this.imp.setSlice(cslice);
-			}
-		});
+		sslider.addAdjustmentListener(this);
 		gd.addCheckbox("Edit original stack", false);
 		gd.showDialog();
 		if(gd.wasCanceled()) return DONE;
@@ -91,9 +84,13 @@ public class Stack_Editor implements ExtendedPlugInFilter {
 			return DOES_ALL|STACK_REQUIRED;
 		}
 	}
-
+	//
+	public void adjustmentValueChanged(AdjustmentEvent ae) {
+		cslice = ae.getValue();
+		imp.setSlice(cslice);
+	}
+	//
 	public void setNPasses(int nPasses) {
 		nPass = nPasses;
 	}
-
 }
